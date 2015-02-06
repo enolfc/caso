@@ -15,8 +15,8 @@
 # under the License.
 
 import ceilometerclient.client
-import dateutil.parser
 from oslo.config import cfg
+import six
 
 from caso.extract import nova
 from caso import log
@@ -40,55 +40,49 @@ class CeilometerExtractor(nova.OpenStackExtractor):
             os_tenant_name=tenant,
             insecure=CONF.extractor.insecure)
 
-    def _build_query(self, project_id=None, start_date=None, end_date=None):
+    def _build_query(self, project_id=None, queries={},
+                     start_date=None, end_date=None):
         q = []
         if project_id:
             q.append({'field': 'project_id', 'value': project_id})
+        for k, v in six.iteritems(queries):
+            q.append({'field': k, 'value': v})
         if start_date:
             q.append({'field': 'timestamp', 'op': 'ge', 'value': start_date})
         if end_date:
             q.append({'field': 'timestamp', 'op': 'le', 'value': end_date})
         return q
 
-    def _fill_metric(self, metric_name, samples, records,
-                     get_id=lambda s: s.resource_id,
+    def _fill_metric(self, metric_name, samples, record,
                      unit_conv=lambda v: v):
-        """Fills a given metric in the records
+        """Fills a given metric in the record.
 
-        get_id is a function that gets the instance id from the sample
+        Assumes samples are for a cumulative metric that may reset
+        for given events (e.g. suspending an instance)
+
         conv is a function that converts the metric to the units
              requested by the usage record
-
         """
 
-        instance_timestamps = {}
+        last_value = 0
+        accum = 0
+        values = []
         for sample in samples:
-            instance_id = get_id(sample)
-            try:
-                r = records[instance_id]
-            except KeyError:
-                continue
-            # takes the maximum value from ceilometer
+            # assumes that samples are sorted from newer to older
             sample_value = unit_conv(sample.counter_volume)
-            instance_ts = instance_timestamps.get(instance_id, None)
-            if instance_ts is None:
-                r.__dict__[metric_name] = sample_value
-            try:
-                r.__dict__[metric_name] = max(r.__dict__[metric_name],
-                                              sample_value)
-            except KeyError:
-                r.__dict__[metric_name] = sample_value
-            sample_ts = dateutil.parser.parse(sample.timestamp)
-            instance_timestamps[instance_id] = sample_ts
+            values.append(sample_value)
+            if last_value < sample_value:
+                accum += sample_value
+            last_value = sample_value
+        record.__dict__[metric_name] = accum
 
-    def _fill_cpu_metric(self, cpu_samples, records):
-        self._fill_metric('cpu_duration', cpu_samples, records,
+    def _fill_cpu_metric(self, cpu_samples, record):
+        self._fill_metric('cpu_duration', cpu_samples, record,
                           # convert ns to s
                           unit_conv=lambda v: int(v / 1e9))
 
-    def _fill_net_metric(self, metric_name, net_samples, records):
-        self._fill_metric(metric_name, net_samples, records,
-                          lambda s: s.resource_metadata.get('instance_id'),
+    def _fill_net_metric(self, metric_name, net_samples, record):
+        self._fill_metric(metric_name, net_samples, record,
                           # convert bytes to GB
                           unit_conv=lambda v: int(v / 2 ** 30))
 
@@ -100,15 +94,22 @@ class CeilometerExtractor(nova.OpenStackExtractor):
         conn = self._get_ceilometer_client(tenant)
         # See comment in nova.py, remove TZ from the dates.
         lastrun = lastrun.replace(tzinfo=None)
-        search_query = self._build_query(ks_conn.tenant_id, lastrun)
 
-        cpu = conn.samples.list(meter_name='cpu', q=search_query)
-        self._fill_cpu_metric(cpu, records)
-        net_in = conn.samples.list(meter_name='network.incoming.bytes',
-                                   q=search_query)
-        self._fill_net_metric('network_in', net_in, records)
-        net_out = conn.samples.list(meter_name='network.outcoming.bytes',
-                                    q=search_query)
-        self._fill_net_metric('network_out', net_out, records)
+        # for each of the records built by nova, get the samples
+        # from ceilometer
+        for r_id, r in six.iteritems(records):
+            cpu_query = self._build_query(ks_conn.tenant_id,
+                                          {'resource_id': r_id})
+            cpu = conn.samples.list(meter_name='cpu', q=cpu_query)
+            self._fill_cpu_metric(cpu, r)
+
+            net_query = self._build_query(ks_conn.tenant_id,
+                                          {'metadata.instance_id': r_id})
+            net_in = conn.samples.list(meter_name='network.incoming.bytes',
+                                       q=net_query)
+            self._fill_net_metric('network_in', net_in, r)
+            net_out = conn.samples.list(meter_name='network.outcoming.bytes',
+                                        q=net_query)
+            self._fill_net_metric('network_out', net_out, r)
 
         return records
