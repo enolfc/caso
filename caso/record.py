@@ -137,7 +137,7 @@ class CloudRecord(object):
             duration = self._wall_duration
         elif None not in (self._start_time, self._end_time):
             duration = (self.end_time - self.start_time).total_seconds()
-        return int(duration) if duration else duration
+        return int(duration) if duration is not None else None
 
     @wall_duration.setter
     def wall_duration(self, value):
@@ -152,7 +152,7 @@ class CloudRecord(object):
             duration = self._cpu_duration
         elif self.wall_duration is not None and self.cpu_count:
             duration = self.wall_duration * self.cpu_count
-        return int(duration) if duration else duration
+        return int(duration) if duration is not None else None
 
     @cpu_duration.setter
     def cpu_duration(self, value):
