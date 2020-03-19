@@ -66,7 +66,6 @@ class Manager(object):
     def __init__(self):
         extractor = loading.get_available_extractors()[CONF.extractor]
         self.extractor = extractor()
-        self.records = None
         self.last_run_base = os.path.join(CONF.spooldir, "lastrun")
 
     def get_lastrun(self, project):
@@ -113,7 +112,7 @@ class Manager(object):
         if extract_to.tzinfo is None:
             extract_to.replace(tzinfo=tz.tzutc())
 
-        records = {}
+        all_records = {}
         for project in CONF.projects:
             LOG.info("Extracting records for project '%s'" % project)
 
@@ -136,6 +135,6 @@ class Manager(object):
                 LOG.info("Extracted %d records for project '%s' from "
                          "%s to %s" % (len(records), project, extract_from,
                                        extract_to))
-                records.update(records)
+                all_records.update(records)
                 self.write_lastrun(project)
-        return records
+        return all_records
