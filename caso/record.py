@@ -69,19 +69,32 @@ class CloudRecord(object):
         "0.4": _v04_fields,
     }
 
-    def __init__(self, uuid, site, name, user_id, group_id, fqan,
-                 status=None,
-                 start_time=None, end_time=None,
-                 suspend_duration=None, wall_duration=None, cpu_duration=None,
-                 network_type=None, network_in=None, network_out=None,
-                 cpu_count=None, memory=None, disk=None,
-                 image_id=None, cloud_type=caso.user_agent,
-                 storage_record_id=None,
-                 vo=None, vo_group=None, vo_role=None,
-                 user_dn=None,
-                 compute_service=None,
-                 benchmark_value=None, benchmark_type=None,
-                 public_ip_count=None):
+    def __init__(
+        self, uuid, site, name, user_id, group_id, fqan,
+        cloud_type=caso.user_agent,
+        compute_service=None,
+        status=None,
+        start_time=None,
+        end_time=None,
+        suspend_duration=None,
+        wall_duration=None,
+        cpu_duration=None,
+        network_type=None,
+        network_in=None,
+        network_out=None,
+        public_ip_count=None,
+        cpu_count=None,
+        memory=None,
+        disk=None,
+        image_id=None,
+        storage_record_id=None,
+        user_dn=None,
+        vo=None,
+        vo_group=None,
+        vo_role=None,
+        benchmark_value=None,
+        benchmark_type=None
+    ):
 
         self.uuid = uuid
         self.site = site
@@ -182,35 +195,38 @@ class CloudRecord(object):
 
     @property
     def map(self):
-        d = {'VMUUID': self.uuid,
-             'SiteName': self.site,
-             'MachineName': self.name,
-             'LocalUserId': self.user_id,
-             'LocalGroupId': self.group_id,
-             'FQAN': self.fqan,
-             'Status': self.status,
-             'StartTime': self.start_time and int(
-                 self.start_time.strftime("%s")
-             ),
-             'EndTime': self.end_time and int(self.end_time.strftime("%s")),
-             'SuspendDuration': self.suspend_duration,
-             'WallDuration': self.wall_duration,
-             'CpuDuration': self.cpu_duration,
-             'CpuCount': self.cpu_count,
-             'NetworkType': self.network_type,
-             'NetworkInbound': self.network_in,
-             'NetworkOutbound': self.network_out,
-             'Memory': self.memory,
-             'Disk': self.disk,
-             'StorageRecordId': self.storage_record_id,
-             'ImageId': self.image_id,
-             'CloudType': self.cloud_type,
-             'GlobalUserName': self.user_dn,
-             'PublicIPCount': self.public_ip_count,
-             'Benchmark': self.benchmark_value,
-             'BenchmarkType': self.benchmark_type,
-             'CloudComputeService': self.compute_service,
-             }
+        d = {
+            'VMUUID': self.uuid,
+            'SiteName': self.site,
+            'MachineName': self.name,
+            'LocalUserId': self.user_id,
+            'LocalGroupId': self.group_id,
+            'FQAN': self.fqan,
+            'Status': self.status,
+            'StartTime': self.start_time and int(
+                self.start_time.strftime("%s")
+            ),
+            'EndTime': self.end_time and int(
+                self.end_time.strftime("%s")
+            ),
+            'SuspendDuration': self.suspend_duration,
+            'WallDuration': self.wall_duration,
+            'CpuDuration': self.cpu_duration,
+            'CpuCount': self.cpu_count,
+            'NetworkType': self.network_type,
+            'NetworkInbound': self.network_in,
+            'NetworkOutbound': self.network_out,
+            'Memory': self.memory,
+            'Disk': self.disk,
+            'StorageRecordId': self.storage_record_id,
+            'ImageId': self.image_id,
+            'CloudType': self.cloud_type,
+            'GlobalUserName': self.user_dn,
+            'PublicIPCount': self.public_ip_count,
+            'Benchmark': self.benchmark_value,
+            'BenchmarkType': self.benchmark_type,
+            'CloudComputeService': self.compute_service,
+        }
         return d
 
     def as_json(self, version=None):
@@ -243,11 +259,13 @@ class IPRecord(object):
         "0.4": _V02_fields,
     }
 
-    def __init__(self, measure_time, site,
-                 user_id, group_id, user_dn, fqan,
-                 ip_version, public_ip_count,
-                 cloud_type=caso.user_agent,
-                 compute_service=None):
+    def __init__(
+        self, measure_time, site,
+        user_id, group_id, user_dn, fqan,
+        ip_version, public_ip_count,
+        cloud_type=caso.user_agent,
+        compute_service=None
+    ):
 
         self.measure_time = measure_time
         self.site = site
@@ -292,19 +310,20 @@ class IPRecord(object):
 
     @property
     def map(self):
-        d = {'MeasurementTime': self.measure_time and int(
-             self.measure_time.strftime("%s")
-             ),
-             'SiteName': self.site,
-             'CloudType': self.cloud_type,
-             'LocalUserId': self.user_id,
-             'LocalGroupId': self.group_id,
-             'FQAN': self.fqan,
-             'GlobalUserName': self.user_dn,
-             'IPVersion': self.ip_version,
-             'IPCount': self.public_ip_count,
-             'CloudComputeService': self.compute_service,
-             }
+        d = {
+            'MeasurementTime': self.measure_time and int(
+                self.measure_time.strftime("%s")
+            ),
+            'SiteName': self.site,
+            'CloudType': self.cloud_type,
+            'LocalUserId': self.user_id,
+            'LocalGroupId': self.group_id,
+            'FQAN': self.fqan,
+            'GlobalUserName': self.user_dn,
+            'IPVersion': self.ip_version,
+            'IPCount': self.public_ip_count,
+            'CloudComputeService': self.compute_service,
+        }
         return d
 
     def as_json(self, version=None):

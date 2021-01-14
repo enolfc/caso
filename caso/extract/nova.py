@@ -91,38 +91,42 @@ class OpenStackExtractor(base.BaseExtractor):
                           "file or set the correct properties in the "
                           "flavor." % flavor)
 
-        r = record.CloudRecord(server.id,
-                               CONF.site_name,
-                               server.name,
-                               server.user_id,
-                               server.tenant_id,
-                               vo,
-                               start_time=server_start,
-                               end_time=server_end,
-                               compute_service=CONF.service_name,
-                               status=status,
-                               image_id=image_id,
-                               user_dn=user,
-                               benchmark_type=bench_name,
-                               benchmark_value=bench_value,
-                               memory=memory,
-                               cpu_count=cpu_count,
-                               disk=disk)
+        r = record.CloudRecord(
+            server.id,
+            CONF.site_name,
+            server.name,
+            server.user_id,
+            server.tenant_id,
+            vo,
+            start_time=server_start,
+            end_time=server_end,
+            compute_service=CONF.service_name,
+            status=status,
+            image_id=image_id,
+            user_dn=user,
+            benchmark_type=bench_name,
+            benchmark_value=bench_value,
+            memory=memory,
+            cpu_count=cpu_count,
+            disk=disk
+        )
         return r
 
     def build_ip_record(self, tenant_id, vo, user,
                         ip_count, version, user_id=None):
         measure_time = self._get_measure_time()
 
-        r = record.IPRecord(measure_time,
-                            CONF.site_name,
-                            user_id,
-                            tenant_id,
-                            user,
-                            vo,
-                            version,
-                            ip_count,
-                            compute_service=CONF.service_name)
+        r = record.IPRecord(
+            measure_time,
+            CONF.site_name,
+            user_id,
+            tenant_id,
+            user,
+            vo,
+            version,
+            ip_count,
+            compute_service=CONF.service_name
+        )
 
         return r
 
