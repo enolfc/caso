@@ -56,9 +56,9 @@ class _SSMBaseMessenger(caso.messenger.BaseMessenger):
         utils.makedirs(CONF.ssm.output_path)
 
     def push_compute_message(self, queue, entries):
-        message = f"APEL-cloud-message: v{self.compute_version}\n"
+        message = "APEL-cloud-message: v%s\n" % self.compute_version
         aux = "%%\n".join(entries)
-        message += f"{aux}\n"
+        message += "%s\n" % aux
         queue.add(message)
 
     def push_ip_message(self, queue, entries):
