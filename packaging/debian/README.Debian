@@ -1,0 +1,5 @@
+cASO Debian/Ubuntu notes
+========================
+
+This package will create an hourly cron that will execute caso. This file is
+normally placed in /etc/cron.hourly/caso

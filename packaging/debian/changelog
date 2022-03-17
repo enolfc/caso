@@ -1,0 +1,228 @@
+python3-caso (3.0.0-1) stable; urgency=medium
+
+  [ Alvaro Lopez Garcia]
+  * Support only for Python 3
+  * Code improvements and bugfixes
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Wed, 16 Mar 2022 00:50:00 +0100
+
+python3-caso (2.1.1-1) stable; urgency=medium
+
+  [ Alvaro Lopez Garcia]
+  * [d1bd16b] Do not rely on f-strings
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Fri, 04 Feb 2021 16:43:35 +0100
+
+python3-caso (2.1.0-1) stable; urgency=medium
+
+  [ Alvaro Lopez Garcia]
+  * [80870b6] Remove ceilometer code
+  * [2495353] extractor: new per-project base extractor
+  * [57c00f5] nova extractor: refactor code to make it simpler
+  * [e4de156] Fix record format, and use correct message format for publication
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Fri, 04 Feb 2021 16:09:35 +0100
+
+python3-caso (2.0.0-7) stable; urgency=medium
+
+  [ Aida Palacio Hoz ]
+  * [5cb2ba3] Add Ip Accounting
+  * [9279e3e] IP Accounting: Fixes and some comments
+  * [64914aa] Format IP record following JSON schema
+
+  [ Alessandro Costantini ]
+  * [968462a] Support for multi-region + documentation
+
+  [ Alvaro Lopez Garcia ]
+  * [ee3035d] Allow projects to be specified as IDs
+  * [e858386] Change error to warning when a VM cannot be loaded
+  * [f4b594a] Generate a warning if a VO mapping is not found
+  * [1576b04] Update LOG message with link to documentation
+  * [592bde5] ssm: add entrypoints for V2 and V4 messengers
+  * [53a3da3] Manage release notes through documentation
+  * [203aeaf] Drop Python 2 support
+  * [36a47c7] Update pbr required version
+  * [d7444ff] Update cASO requirements
+  * [9ee7e17] Fix requirements with proper versions
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Fri, 15 Jan 2021 13:07:16 +0100
+
+caso (1.4.3-1) stable; urgency=medium
+
+  [ Alvaro Lopez Garcia ]
+  * [c8325f5] Ensure that we return integers for wall/cpu duration
+  * [34a7fc6] Fix bug that made cASO report only last project configured
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Tue, 24 Mar 2020 11:38:12 +0100
+
+caso (1.4.2-1) stable; urgency=medium
+
+  [ Alvaro Lopez Garcia ]
+  * [3b88759] Servers deleted with end_time=None must have an end time
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Mon, 09 Mar 2020 17:29:52 +0100
+
+caso (1.4.0-1) stable; urgency=medium
+
+  * [38013fd] Add "max-size" to limit output records sent to the messenger
+  * [c8a6870] Update sample cfg file
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Tue, 10 Dec 2019 12:55:10 +0100
+
+caso (1.3.3-1) stable; urgency=medium
+
+  * [3503e5c] Do not fail if querying for a server throws an error in the API
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Tue, 15 Oct 2019 10:46:16 +0200
+
+caso (1.3.2-1) stable; urgency=medium
+
+  * [796c50e] Fix wrong record generation
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Fri, 04 Oct 2019 13:07:55 +0200
+
+caso (1.3.1-1) stable; urgency=medium
+
+  [ Alvaro Lopez Garcia ]
+  * [a9d2e7a] Update configuration files
+  * [a77e54e] Add locking so that cASO does not run in parallel
+  * [6f68e12] Fix lock path management
+  * [181aa81] Use correct server's start time
+  * [6df46e9] record: use properties for {start,end}_time
+  * [0e8cadb] Improve and fix duration calculation and server status
+  * [bd228ae] tox: remove py34
+  * [540b4e7] Document keystone policy configuration
+  * [4b73f19] setup: set proper content type for description
+  * [723d8fd] Use correct version string
+
+  [ Enol Fernandez ]
+  * [a6cd2d9] Use the public keystone interface
+  * [4f475f3] Avoid iteritems
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Tue, 01 Oct 2019 09:32:11 +0200
+
+caso (1.2.0-1) stable; urgency=medium
+
+  [ Alvaro Lopez Garcia ]
+  * [34cc6dc] Remove old references to "tenant(s)" in the docs and examples
+  * [a86c638] Add and change some meta files to the repository
+  * [c703585] Add python 3.6 as supported version
+  * [ae6eb97] Do not lazy-load the extra specs for each flavor
+  * [2161a33] Fix record extraction and do not request only deleted records
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Fri, 01 Jun 2018 13:51:58 +0200
+
+caso (1.1.1-1) stable; urgency=medium
+
+  * [11520c0] Do not create records for instances outside the reporting period
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Thu, 03 Aug 2017 11:56:16 +0200
+
+caso (1.1.0-1) stable; urgency=medium
+
+  [ Alvaro Lopez Garcia ]
+  * [6c4c7e5] remove old helper script
+  * [6b99fdb] fix test failure due to oslo.cfg update
+  * [c873858] Take pagination into account
+  * [d35fefc] Report correct durations using periods
+  * [345da26] Deprecate underscored options
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Wed, 24 May 2017 11:11:20 +0200
+
+caso (1.0.1-1) stable; urgency=medium
+
+  * [50e1dee] Use scope in flavor properties
+  * [bb3605b] Include "OpenStack" string in the user agent
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Mon, 27 Feb 2017 10:25:51 +0100
+
+caso (1.0.0-1) stable; urgency=medium
+
+  [ Alvaro Lopez Garcia ]
+  * [ceb2049] Deprecate old ssm messager
+  * [ef7199f] Implement a base SSM messenger
+  * [cbd80f2] Implement v0.4 of the CloudRecord
+  * [f4093be] Implement version 0.4 of the SSM messenger
+  * [1ad5142] Add service name to the nova extractor
+  * [3a720f6] Do not put extractors options under CONF.extractor
+  * [fd08e4f] remove redundant help message
+  * [d013ec2] Use keystoneauth1 and sessions for authentication
+  * [4d8511f] Improve documentation
+  * [9ab70fb] Fix typo in log message
+  * [b049137] update python3 version
+  * [87e55e2] add bandit security linter
+  * [debee59] do not use absolute path for cfg files
+  * [ad79a63] do not use nova.images but glance client
+  * [cb625c8] do not use tenant_id but project_id
+  * [66ae4f4] log additional message before extracting records
+  * [d551b86] doc: Update user creation section in configuration
+  * [786d5c3] Fix missing flavor name in logging
+  * [822d5bf] update sample configuration file
+  * [586484d] extract benchmark information
+
+  [ Luis Pigueiras ]
+  * [6b35f60] Add option --extract-to to the parameters
+  * [328516e] Adapt extractors to use the new extract_to parameter
+  * [a4995fb] Fix pep8 and flake8
+
+  [ Mario David ]
+  * [178ee50] Fix failure when server does not have image_id
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Fri, 24 Feb 2017 11:30:09 +0100
+
+caso (0.3.3-1) stable; urgency=medium
+
+  * [c335ed0] Use a list for the tenant mapping
+  * [1638298] update sample configuration file
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Tue, 18 Oct 2016 10:01:34 +0200
+
+caso (0.3.2-1) stable; urgency=medium
+
+  * [d0178d2] Switch to using oslo_* instead of oslo.*
+  * [afe8cfd] Switch logging to oslo.log
+  * [2017336] Generate config samples directly from oslo
+  * [f28b27b] Do not use deprecated get_client_class() function
+  * [8c0174e] Handle exceptions getting records
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Mon, 21 Dec 2015 11:54:46 +0100
+
+caso (0.3.1-1) stable; urgency=medium
+
+  * [1236322] Fix TZ not being actually removed
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Tue, 30 Jun 2015 12:12:39 +0200
+
+caso (0.3-1) stable; urgency=medium
+
+  * [1540d13] Initial debian packaging stuff
+  * [e1aaa0e] Add license information to pbr metadata
+  * [cb2cec0] Add unit tests for base extractor manager
+  * [97faea1] Add missing method on BaseExtractor
+  * [6474f1d] Add docstrings
+  * [227921c] Fix CPU duration reporting
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Tue, 09 Jun 2015 09:11:07 +0200
+
+caso (0.2-1) stable; urgency=medium
+
+  [ Adam Huffman ]
+  * [b8bdd16] Update installation.rst
+
+  [ Enol Fernandez ]
+  * [a090ff9] Use coherent capitalization of cASO.
+  * [47cb63a] Added info on migration from osssm.
+  * [909f2a4] Improve CentOS 6 information.
+  * [53da27c] Update to support python3.
+  * [68a81f3] Added information about SSL certificate checking.
+  * [3e52724] Ceilometer extractor now extends nova information.
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Mon, 09 Feb 2015 10:35:05 +0100
+
+caso (0.1.1) stable; urgency=medium
+
+  * UNRELEASED
+
+  [ Alvaro Lopez Garcia ]
+
+ -- Alvaro Lopez Garcia <aloga@ifca.unican.es>  Mon, 09 Feb 2015 10:34:26 +0100
