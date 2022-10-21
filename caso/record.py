@@ -48,7 +48,7 @@ class CloudRecord(BaseRecord):
     uuid: uuid.UUID
     name: str
 
-    user_id: uuid.UUID
+    user_id: str
     user_dn: typing.Optional[str]
     group_id: uuid.UUID
     fqan: str
