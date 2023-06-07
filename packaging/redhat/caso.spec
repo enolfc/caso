@@ -60,6 +60,12 @@ mv %{buildroot}/usr/etc/ %{buildroot}/etc
 %exclude /etc/caso/caso-config-generator.conf
 
 %changelog
+* Wed Jun 06 2023 Alvaro Lopez Garcia <aloga@ifca.unican.es> 4.2.0
+- fix: use POSIX timestamps for SSM cloud records
+- Render JSON dates as timestamp integers
+- Do not render records using .dict() but usin JSON
+- Include type annotations on fixtures
+- Records must implement an SSM rendering by themselves
 * Mon Apr 10 2023 Alvaro Lopez Garcia <aloga@ifca.unican.es> 4.1.0
 - Remove duplicated option
 - Let operators mark projects directly on keystone
