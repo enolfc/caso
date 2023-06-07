@@ -30,9 +30,37 @@ jobs:
     - name: Test with tox
       run: tox
 
+  build-sdist:
+    runs-on: ubuntu-latest
+    needs:
+      - test
+    steps:
+      - name: Get cASO repo
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref_name }}
+      - name: Build sdist file
+        run: python setup.py sdist
+
+      - name: Upload sidst to be used for other jobs
+        uses: actions/upload-artifact@v3
+        with:
+          path: dist/caso-${{ github.ref_name }}.tar.gz
+          name: caso-${{ github.ref_name }}.tar.gz
+
+      - name: Update source distribution artifacts to release
+        if: github.event_name == 'release'
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: 'dist/*tar.gz'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          release-tag: ${{ github.ref_name }}
+
   build-deb:
     runs-on: ubuntu-latest
-    needs: test
+    needs: 
+      - test
+      - build-sdist
     steps:
       - name: Get cASO repo
         uses: actions/checkout@v3
@@ -42,23 +70,43 @@ jobs:
       - name: Copy debian file into the correct place for the build
         run: cp -r packaging/debian debian
 
-      - name: Build Debian package
-        uses: alvarolopez/action-debian-python-package@v4
+      - name: Install Debian deps
+        run: sudo apt-get install -y dpkg-dev debhelper devscripts lintian python3-pip tox dh-python python3-all python3-all-dev python3-pbr
+      
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      
+      - name: Download sdist artifact
+        uses: actions/download-artifact@v3
         with:
-          artifacts_directory: output
-          os_distribution: stable
+          name: caso-${{ github.ref_name }}.tar.gz
+          path: dist
+
+      - name: Copy sdist to expected debian source file
+        run: cp dist/caso-${{ github.ref_name }}.tar.gz ../caso-${{ github.ref_name }}.orig.tar.gz
+
+      - name: Now build package
+        run: dpkg-buildpackage -b
+
+      - name: debug
+        run: ls
+      
+      - name: debug
+        run: ls ..
 
       - name: Update DEB artifacts to release
         if: github.event_name == 'release'
         uses: AButler/upload-release-assets@v2.0
         with:
-          files: 'output/*deb'
+          files: '../*deb'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ github.ref_name }}
   
   build-rpm:
     runs-on: ubuntu-latest
-    needs: test
+    needs: 
+      - build-sdist
+      - test
     steps:
       - name: Get cASO repo
         uses: actions/checkout@v3
@@ -66,9 +114,15 @@ jobs:
           repository: IFCA/caso
           ref: ${{ github.ref_name }}
       
-      - name: Build sdist to use as source
-        run: python setup.py sdist
+      - name: Download sdist artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: caso-${{ github.ref_name }}.tar.gz
+          path: dist
 
+      - name: debug
+        run: ls
+      
       - name: Build RPM package
         id: rpm
         uses: alvarolopez/rpmbuild@rockylinux9
