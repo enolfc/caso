@@ -253,6 +253,7 @@ valid_storage_records_fields = [
         start_time=now - datetime.timedelta(days=5),
         capacity=322122547200,
         user_dn="d4e547e6f298fe34389@foobar.eu",
+        volume_creation=now - datetime.timedelta(days=5),
     ),
     dict(
         uuid="99cf5d02-a573-46a1-b90d-0f7327126876",
@@ -268,6 +269,7 @@ valid_storage_records_fields = [
         start_time=now - datetime.timedelta(days=6),
         capacity=122122547200,
         user_dn="d4e547e6f298fe34389@foobar.eu",
+        volume_creation=now - datetime.timedelta(days=6),
     ),
 ]
 
@@ -288,6 +290,7 @@ valid_storage_records_dict = [
         "Type": "Block Storage (cinder)",
         "Status": "in-use",
         "Capacity": 322122547200,
+        "VolumeCreationTime": 1684619946,
     },
     {
         "SiteName": "TEST-Site",
@@ -305,6 +308,7 @@ valid_storage_records_dict = [
         "Type": "Block Storage (cinder)",
         "Status": "in-use",
         "Capacity": 122122547200,
+        "VolumeCreationTime": 1684533546,
     },
 ]
 

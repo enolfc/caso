@@ -1,4 +1,4 @@
-# caso
+
 
 <img src="https://github.com/IFCA/caso/raw/master/doc/source/static/caso.png" width="300">
 

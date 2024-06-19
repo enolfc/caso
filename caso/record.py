@@ -423,6 +423,7 @@ def map_storage_fields(field: str) -> str:
         "attached_duration": "AttachedDuration",
         "compute_service": "CloudComputeService",
         "cloud_type": "CloudType",
+        "volume_creation_epoch": "VolumeCreationTime",
     }
     return d.get(field, field)
 
@@ -453,6 +454,7 @@ class StorageRecord(_BaseRecord):
     # easier for us to maintain them as datetime objects internally.
     _measure_time: datetime.datetime
     _start_time: datetime.datetime
+    _volume_creation: datetime.datetime
 
     storage_type: typing.Optional[str] = "Block Storage (cinder)"
 
@@ -463,6 +465,7 @@ class StorageRecord(_BaseRecord):
         self,
         start_time: datetime.datetime,
         measure_time: datetime.datetime,
+        volume_creation: datetime.datetime,
         *args,
         **kwargs,
     ):
@@ -471,6 +474,7 @@ class StorageRecord(_BaseRecord):
 
         self._start_time = start_time
         self._measure_time = measure_time
+        self._volume_creation = volume_creation
 
     @property
     def start_time(self) -> datetime.datetime:
@@ -503,6 +507,22 @@ class StorageRecord(_BaseRecord):
     def measure_time_epoch(self) -> int:
         """Get measurement time as epoch."""
         return int(self._measure_time.timestamp())
+
+    @property
+    def volume_creation(self) -> datetime.datetime:
+        """Get volume creation time."""
+        return self._volume_creation
+
+    @volume_creation.setter
+    def volume_creation(self, volume_creation: datetime.datetime) -> None:
+        """Set volume creation time."""
+        self._volume_creation = volume_creation
+
+    @pydantic.computed_field()  # type: ignore[misc]
+    @property
+    def volume_creation_epoch(self) -> int:
+        """Get volume creation time as epoch."""
+        return int(self._volume_creation.timestamp())
 
     def ssm_message(self):
         """Render record as the expected SSM message."""
