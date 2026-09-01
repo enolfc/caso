@@ -1760,14 +1760,14 @@ eventlet = ["eventlet (>=0.35.2)"]
 
 [[package]]
 name = "oslo-config"
-version = "10.1.0"
+version = "10.4.0"
 description = "Oslo Configuration API"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "oslo_config-10.1.0-py3-none-any.whl", hash = "sha256:90505d941597be502228d15f847f1f4cc990c25f59844a07efde9a65e707bd61"},
-    {file = "oslo_config-10.1.0.tar.gz", hash = "sha256:93a68f9bd52242198b404bb07b2b81f644008044a4882eb1b5042417b9819b36"},
+    {file = "oslo_config-10.4.0-py3-none-any.whl", hash = "sha256:0429c7b312114fb796005bdb718bba51e66de9c0814fb2cee22e754afbfe253b"},
+    {file = "oslo_config-10.4.0.tar.gz", hash = "sha256:2ae3e02593474ecd7b64ec4eb11482adb4c928a78267bc820f5c3f80240b197a"},
 ]
 
 [package.dependencies]
@@ -1776,7 +1776,7 @@ netaddr = ">=0.7.18"
 PyYAML = ">=5.1"
 requests = ">=2.18.0"
 rfc3986 = ">=1.2.0"
-stevedore = ">=1.20.0"
+stevedore = ">=5.6.0"
 
 [package.extras]
 rst-generator = ["rst2txt (>=1.1.0)", "sphinx (>=1.8.0)"]
