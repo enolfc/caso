@@ -2730,17 +2730,19 @@ pbr = ">=2.0.0"
 
 [[package]]
 name = "oslo-log"
-version = "6.2.0"
+version = "8.2.0"
 description = "oslo.log library"
 optional = false
-python-versions = ">=3.9"
+python-versions = ">=3.10"
 groups = ["main"]
+markers = "python_version < \"3.15\""
 files = [
-    {file = "oslo.log-6.2.0-py3-none-any.whl", hash = "sha256:116cb325941242cafd2f0d7797685428c041f2c2580806052b16bd2a71dc38e8"},
-    {file = "oslo.log-6.2.0.tar.gz", hash = "sha256:2b151d9c3f2b2ecc12c06d0fb7dbf2e9047afdaec3644827fa1e10b354369563"},
+    {file = "oslo_log-8.2.0-py3-none-any.whl", hash = "sha256:783dab9d4523262ec3b6403cd3a4e34b709b2db90da59b0435c5ed1a702ec1b6"},
+    {file = "oslo_log-8.2.0.tar.gz", hash = "sha256:12b3f6574429cd9675e3c70496f6e0c2e48217f5126c5ff0a0c188ac575bc970"},
 ]
 
 [package.dependencies]
+debtcollector = ">=3.0.0"
 "oslo.config" = ">=5.2.0"
 "oslo.context" = ">=2.21.0"
 "oslo.i18n" = ">=3.20.0"
@@ -2752,7 +2754,33 @@ python-dateutil = ">=2.7.0"
 [package.extras]
 fixtures = ["fixtures (>=3.0.0)"]
 systemd = ["systemd-python (>=234)"]
-test = ["coverage (>=4.5.1)", "eventlet (>=0.30.1)", "fixtures (>=3.0.0)", "oslotest (>=3.3.0)", "stestr (>=2.0.0)", "testtools (>=2.3.0)"]
+
+[[package]]
+name = "oslo-log"
+version = "8.3.2"
+description = "oslo.log library"
+optional = false
+python-versions = ">=3.11"
+groups = ["main"]
+markers = "python_version >= \"3.15\""
+files = [
+    {file = "oslo_log-8.3.2-py3-none-any.whl", hash = "sha256:e3b61143756749b55eed8dbf064914c053e17e4e741c05fdb4e01d9f9a420a31"},
+    {file = "oslo_log-8.3.2.tar.gz", hash = "sha256:478a5cbae4375c42f2e114ea0aafda105b8753b9b8bd1acc09d154a254048002"},
+]
+
+[package.dependencies]
+debtcollector = ">=3.0.0"
+"oslo.config" = ">=5.2.0"
+"oslo.context" = ">=2.21.0"
+"oslo.i18n" = ">=3.20.0"
+"oslo.serialization" = ">=2.25.0"
+"oslo.utils" = ">=3.36.0"
+pbr = ">=3.1.1"
+python-dateutil = ">=2.7.0"
+
+[package.extras]
+fixtures = ["fixtures (>=3.0.0)"]
+systemd = ["systemd-python (>=234)"]
 
 [[package]]
 name = "oslo-serialization"
@@ -3504,18 +3532,19 @@ stevedore = ">=3.3.0"
 
 [[package]]
 name = "python-dateutil"
-version = "2.9.0.post0"
+version = "3.0.0"
 description = "Extensions to the standard Python datetime module"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 groups = ["main"]
 files = [
-    {file = "python-dateutil-2.9.0.post0.tar.gz", hash = "sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"},
-    {file = "python_dateutil-2.9.0.post0-py2.py3-none-any.whl", hash = "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427"},
+    {file = "python_dateutil-3.0.0-py2.py3-none-any.whl", hash = "sha256:3c79630202e4152c6add678446984236efe4f57e84d8e892aab0637bab82e9fd"},
+    {file = "python_dateutil-3.0.0.tar.gz", hash = "sha256:7ebcb3c29a92f3ceafe79a7a48a5c45677e9e004bbeec5742ac0bbb00560b7a2"},
 ]
 
 [package.dependencies]
-six = ">=1.5"
+six = ">=1.6"
+tzdata = "*"
 
 [[package]]
 name = "python-discovery"
@@ -3582,14 +3611,14 @@ wrapt = ">=1.7.0"
 
 [[package]]
 name = "python-keystoneclient"
-version = "5.8.0"
+version = "6.0.0"
 description = "Client Library for OpenStack Identity"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "python_keystoneclient-5.8.0-py3-none-any.whl", hash = "sha256:0cc96cc719bbd8b1ca8fda71e38017dba3e87ebe3b479fcc9261a67e30b21b85"},
-    {file = "python_keystoneclient-5.8.0.tar.gz", hash = "sha256:3ca87c67c404298ce862310b569f545a58acf75cd5685094c82f35320b3a355d"},
+    {file = "python_keystoneclient-6.0.0-py3-none-any.whl", hash = "sha256:89377117dd65252af14f2ff47868087826977607636f131c01e52f9adee9774a"},
+    {file = "python_keystoneclient-6.0.0.tar.gz", hash = "sha256:d6ac3a09adf2319aaac5728e3bf7cbeaf952c295bd7831f1df9a573b25fbcf82"},
 ]
 
 [package.dependencies]
@@ -5189,4 +5218,4 @@ type = ["pytest-mypy (>=1.0.1) ; platform_python_implementation != \"PyPy\""]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "6842081a35994e0f318748e07206e80219dc8729469fcdca0a496e1a984575c9"
+content-hash = "8d8f505694a46b7a18bf16a8a7dad7b945b5b2ac90abe1f7182ebff31ff61800"
