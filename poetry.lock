@@ -1411,19 +1411,19 @@ pyflakes = ">=4.0.0,<4.1.0"
 
 [[package]]
 name = "flake8-bugbear"
-version = "24.12.12"
+version = "26.9.30"
 description = "A plugin for flake8 finding likely bugs and design problems in your program. Contains warnings that don't belong in pyflakes and pycodestyle."
 optional = false
-python-versions = ">=3.8.1"
+python-versions = ">=3.10"
 groups = ["test-flake8"]
 files = [
-    {file = "flake8_bugbear-24.12.12-py3-none-any.whl", hash = "sha256:1b6967436f65ca22a42e5373aaa6f2d87966ade9aa38d4baf2a1be550767545e"},
-    {file = "flake8_bugbear-24.12.12.tar.gz", hash = "sha256:46273cef0a6b6ff48ca2d69e472f41420a42a46e24b2a8972e4f0d6733d12a64"},
+    {file = "flake8_bugbear-26.9.30-py3-none-any.whl", hash = "sha256:d0fec65b92eb79adde488515c925c33afabbf85d194bd881e845c71444960fc5"},
+    {file = "flake8_bugbear-26.9.30.tar.gz", hash = "sha256:163a36c18929e3c4ade660ea9b8a22bb56fe65a0ca7edf9d9642ba962d426c07"},
 ]
 
 [package.dependencies]
 attrs = ">=22.2.0"
-flake8 = ">=6.0.0"
+flake8 = ">=7.2.0"
 
 [package.extras]
 dev = ["coverage", "hypothesis", "hypothesmith (>=0.2)", "pre-commit", "pytest", "tox"]
@@ -5022,4 +5022,4 @@ type = ["pytest-mypy (>=1.0.1) ; platform_python_implementation != \"PyPy\""]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "2464b6417143fac823376ee9a434d25af489ab4c0737153ef75c20b62ac6882c"
+content-hash = "c2ff44d858bd889b42ed779346d055850fbf3f7fd2d9e9ec8f0503b87f23431f"

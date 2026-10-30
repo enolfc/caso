@@ -102,7 +102,7 @@ testtools = "^2.7.2"
 
 [tool.poetry.group.test-flake8.dependencies]
 flake8 = "^7.1.1"
-flake8-bugbear = "^24.8.19"
+flake8-bugbear = ">=24.8.19,<27.0.0"
 flake8-docstrings = "^1.7.0"
 flake8-typing-imports = "^1.15.0"
 flake8-colors = "^0.1.9"
