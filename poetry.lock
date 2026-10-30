@@ -3528,14 +3528,14 @@ stevedore = ">=1.20.0"
 
 [[package]]
 name = "python-neutronclient"
-version = "11.8.0"
+version = "14.0.0"
 description = "CLI and Client Library for OpenStack Networking"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "python_neutronclient-11.8.0-py3-none-any.whl", hash = "sha256:f0bbb3f14f11a89cbb8489fa7b1341067647403592e03956d7f79bb757d0befe"},
-    {file = "python_neutronclient-11.8.0.tar.gz", hash = "sha256:6ea711eb88fcde47523250ac829cb9b9da8bc0bf2dd0205add4e1c9a4cce0515"},
+    {file = "python_neutronclient-14.0.0-py3-none-any.whl", hash = "sha256:1c97137036315a4cd31f77155d77317a336d8aa7fd4f0c9a1b61437add4fef66"},
+    {file = "python_neutronclient-14.0.0.tar.gz", hash = "sha256:9f7ba93e6845e381b833eb54c8fd143160b8fa026c383078f9ac39de7f3c5d19"},
 ]
 
 [package.dependencies]
