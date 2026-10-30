@@ -1939,7 +1939,6 @@ description = "Authentication Library for OpenStack Identity"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "python_version < \"3.15\""
 files = [
     {file = "keystoneauth1-5.14.0-py3-none-any.whl", hash = "sha256:f8c503a95fdd83b5b72736657e4ffbb53d4b28b01763f23013f0294ed8a0e4b9"},
     {file = "keystoneauth1-5.14.0.tar.gz", hash = "sha256:7b942084d3db27dd285c13253cdfee10b05be0436db1c01e15dc744902197a7f"},
@@ -1951,32 +1950,6 @@ os-service-types = ">=1.2.0"
 pbr = ">=2.0.0"
 requests = ">=2.14.2"
 stevedore = ">=1.20.0"
-typing-extensions = ">=4.12"
-
-[package.extras]
-betamax = ["PyYAML (>=3.13)", "betamax (>=0.7.0)", "fixtures (>=3.0.0)"]
-kerberos = ["requests-kerberos (>=0.8.0)"]
-oauth1 = ["oauthlib (>=0.6.2)"]
-saml2 = ["lxml (>=4.2.0)"]
-
-[[package]]
-name = "keystoneauth1"
-version = "5.18.1"
-description = "Authentication Library for OpenStack Identity"
-optional = false
-python-versions = ">=3.11"
-groups = ["main"]
-markers = "python_version >= \"3.15\""
-files = [
-    {file = "keystoneauth1-5.18.1-py3-none-any.whl", hash = "sha256:2440f1f29e4aaaaf771893e8da7c098ca27548210dc13e964b53fd2aaaedd6b0"},
-    {file = "keystoneauth1-5.18.1.tar.gz", hash = "sha256:8970f9d103f335c39151366d70c001d1bb99b00d73845f03d47825e8dc35ff78"},
-]
-
-[package.dependencies]
-iso8601 = ">=2.0.0"
-os-service-types = ">=1.2.0"
-requests = ">=2.14.2"
-stevedore = ">=5.9.1"
 typing-extensions = ">=4.12"
 
 [package.extras]
@@ -2431,7 +2404,6 @@ description = "An SDK for building applications to work with OpenStack"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "python_version < \"3.15\""
 files = [
     {file = "openstacksdk-4.13.0-py3-none-any.whl", hash = "sha256:3588662fdfba753ec32336dca836562622017ab8ed7b5bc910dd128681ebac8a"},
     {file = "openstacksdk-4.13.0.tar.gz", hash = "sha256:ab5b0d7e3a42de3dbc78497b31b5be53abf77a962986b3a621821e07e38c69a2"},
@@ -2451,33 +2423,6 @@ platformdirs = ">=3"
 psutil = ">=3.2.2"
 PyYAML = ">=3.13"
 typing-extensions = ">=4.12.0"
-
-[[package]]
-name = "openstacksdk"
-version = "4.22.0"
-description = "An SDK for building applications to work with OpenStack"
-optional = false
-python-versions = ">=3.11"
-groups = ["main"]
-markers = "python_version >= \"3.15\""
-files = [
-    {file = "openstacksdk-4.22.0-py3-none-any.whl", hash = "sha256:e5aafe38e4c338bcb3844f1f446d7761c68477db8cec0e4bb91f4de9d35877c1"},
-    {file = "openstacksdk-4.22.0.tar.gz", hash = "sha256:757f399346f804d0a70b83fead919c498521e509889cd8973ece5cf7a640e6f9"},
-]
-
-[package.dependencies]
-cryptography = ">=2.7"
-decorator = ">=4.4.1"
-"dogpile.cache" = ">=0.6.5"
-iso8601 = ">=0.1.11"
-jmespath = ">=0.9.0"
-jsonpatch = ">=1.16,!=1.20"
-keystoneauth1 = ">=5.16.0"
-os-service-types = ">=1.8.1"
-pbr = ">=2.0.0,!=2.1.0"
-platformdirs = ">=3"
-psutil = ">=3.2.2"
-PyYAML = ">=3.13"
 
 [[package]]
 name = "os-service-types"
@@ -2572,34 +2517,9 @@ description = "Oslo Concurrency library"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "python_version < \"3.15\""
 files = [
     {file = "oslo_concurrency-7.5.0-py3-none-any.whl", hash = "sha256:11dfa769f330de64cad0aca2736f75239265e571b5e17edcb23f08f29b917aef"},
     {file = "oslo_concurrency-7.5.0.tar.gz", hash = "sha256:091ce0a27c5f347e393cf4776176389fe23c0b863ff0539d121619d0ec691367"},
-]
-
-[package.dependencies]
-debtcollector = ">=3.0.0"
-fasteners = ">=0.7.0"
-"oslo.config" = ">=5.2.0"
-"oslo.i18n" = ">=3.15.3"
-"oslo.utils" = ">=3.33.0"
-pbr = ">=2.0.0"
-
-[package.extras]
-eventlet = ["eventlet (>=0.35.2)"]
-
-[[package]]
-name = "oslo-concurrency"
-version = "7.6.1"
-description = "Oslo Concurrency library"
-optional = false
-python-versions = ">=3.11"
-groups = ["main"]
-markers = "python_version >= \"3.15\""
-files = [
-    {file = "oslo_concurrency-7.6.1-py3-none-any.whl", hash = "sha256:37cc117c5d0600542d3d88ce03efa96f53fc9324cdf3c056695674a680c488b2"},
-    {file = "oslo_concurrency-7.6.1.tar.gz", hash = "sha256:8dcd3a6e931fc24d53832e887a124e3872e44e1af015cab47783bc67ad5b85e7"},
 ]
 
 [package.dependencies]
@@ -2620,7 +2540,6 @@ description = "Oslo Configuration API"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "python_version < \"3.15\""
 files = [
     {file = "oslo_config-10.4.0-py3-none-any.whl", hash = "sha256:0429c7b312114fb796005bdb718bba51e66de9c0814fb2cee22e754afbfe253b"},
     {file = "oslo_config-10.4.0.tar.gz", hash = "sha256:2ae3e02593474ecd7b64ec4eb11482adb4c928a78267bc820f5c3f80240b197a"},
@@ -2629,31 +2548,6 @@ files = [
 [package.dependencies]
 netaddr = ">=0.7.18"
 "oslo.i18n" = ">=3.15.3"
-PyYAML = ">=5.1"
-requests = ">=2.18.0"
-rfc3986 = ">=1.2.0"
-stevedore = ">=5.6.0"
-
-[package.extras]
-rst-generator = ["rst2txt (>=1.1.0)", "sphinx (>=1.8.0)"]
-
-[[package]]
-name = "oslo-config"
-version = "10.8.0"
-description = "Oslo Configuration API"
-optional = false
-python-versions = ">=3.11"
-groups = ["main"]
-markers = "python_version >= \"3.15\""
-files = [
-    {file = "oslo_config-10.8.0-py3-none-any.whl", hash = "sha256:81eeddc1144a6fa9643b40cd027d4f967c985317944d5b5f2bac39e5a11289f6"},
-    {file = "oslo_config-10.8.0.tar.gz", hash = "sha256:ce243ec7a494e431dc7a6ac5aa06cdf5ad37110ee04876f505e0e2387d543eea"},
-]
-
-[package.dependencies]
-netaddr = ">=0.7.18"
-"oslo.i18n" = ">=3.15.3"
-pbr = ">=2.0.0"
 PyYAML = ">=5.1"
 requests = ">=2.18.0"
 rfc3986 = ">=1.2.0"
@@ -2735,37 +2629,9 @@ description = "oslo.log library"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "python_version < \"3.15\""
 files = [
     {file = "oslo_log-8.2.0-py3-none-any.whl", hash = "sha256:783dab9d4523262ec3b6403cd3a4e34b709b2db90da59b0435c5ed1a702ec1b6"},
     {file = "oslo_log-8.2.0.tar.gz", hash = "sha256:12b3f6574429cd9675e3c70496f6e0c2e48217f5126c5ff0a0c188ac575bc970"},
-]
-
-[package.dependencies]
-debtcollector = ">=3.0.0"
-"oslo.config" = ">=5.2.0"
-"oslo.context" = ">=2.21.0"
-"oslo.i18n" = ">=3.20.0"
-"oslo.serialization" = ">=2.25.0"
-"oslo.utils" = ">=3.36.0"
-pbr = ">=3.1.1"
-python-dateutil = ">=2.7.0"
-
-[package.extras]
-fixtures = ["fixtures (>=3.0.0)"]
-systemd = ["systemd-python (>=234)"]
-
-[[package]]
-name = "oslo-log"
-version = "8.3.2"
-description = "oslo.log library"
-optional = false
-python-versions = ">=3.11"
-groups = ["main"]
-markers = "python_version >= \"3.15\""
-files = [
-    {file = "oslo_log-8.3.2-py3-none-any.whl", hash = "sha256:e3b61143756749b55eed8dbf064914c053e17e4e741c05fdb4e01d9f9a420a31"},
-    {file = "oslo_log-8.3.2.tar.gz", hash = "sha256:478a5cbae4375c42f2e114ea0aafda105b8753b9b8bd1acc09d154a254048002"},
 ]
 
 [package.dependencies]
@@ -3493,32 +3359,9 @@ description = "OpenStack Block Storage API Client Library"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "python_version < \"3.15\""
 files = [
     {file = "python_cinderclient-9.9.0-py3-none-any.whl", hash = "sha256:1c7a5cb0d8202225fd8e7abc60b7cee6e23a5a2ba44f9afb0f92408330486e39"},
     {file = "python_cinderclient-9.9.0.tar.gz", hash = "sha256:697e4d12c249f39b41ecf4fa6fcb8c38cbf2d6b2d84d6f515ed567b82dcd0bd1"},
-]
-
-[package.dependencies]
-keystoneauth1 = ">=5.9.0"
-"oslo.i18n" = ">=5.0.1"
-"oslo.utils" = ">=4.8.0"
-pbr = ">=5.5.0"
-PrettyTable = ">=0.7.2"
-requests = ">=2.25.1"
-stevedore = ">=3.3.0"
-
-[[package]]
-name = "python-cinderclient"
-version = "9.10.0"
-description = "OpenStack Block Storage API Client Library"
-optional = false
-python-versions = ">=3.11"
-groups = ["main"]
-markers = "python_version >= \"3.15\""
-files = [
-    {file = "python_cinderclient-9.10.0-py3-none-any.whl", hash = "sha256:a12bf100512d2aded221d785e222c175b757ba6ad7f31e46d4bf3145fc45cb64"},
-    {file = "python_cinderclient-9.10.0.tar.gz", hash = "sha256:fb856e6f4382a4c84d82f00415e3c66514b73e12d94679935182ba4f86510916"},
 ]
 
 [package.dependencies]
@@ -3568,34 +3411,9 @@ description = "OpenStack Image API Client Library"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "python_version < \"3.15\""
 files = [
     {file = "python_glanceclient-4.12.0-py3-none-any.whl", hash = "sha256:37741ff42edc0b9f083c3b87392416963d2ad0797b8149dc06ab671a522dbd67"},
     {file = "python_glanceclient-4.12.0.tar.gz", hash = "sha256:390556573c8736409adaa3c8ba800e0d9fc1b12e2fb6d6939b8dfe999468f50f"},
-]
-
-[package.dependencies]
-keystoneauth1 = ">=3.6.2"
-"oslo.i18n" = ">=3.15.3"
-"oslo.utils" = ">=3.33.0"
-pbr = ">=2.0.0,!=2.1.0"
-PrettyTable = ">=0.7.1"
-pyOpenSSL = ">=17.1.0"
-requests = ">=2.14.2"
-warlock = ">=1.2.0"
-wrapt = ">=1.7.0"
-
-[[package]]
-name = "python-glanceclient"
-version = "4.13.0"
-description = "OpenStack Image API Client Library"
-optional = false
-python-versions = ">=3.11"
-groups = ["main"]
-markers = "python_version >= \"3.15\""
-files = [
-    {file = "python_glanceclient-4.13.0-py3-none-any.whl", hash = "sha256:eadbf8444dba65d396c07dd701d773f1bcc3eb9a233379e22409261227c5b88d"},
-    {file = "python_glanceclient-4.13.0.tar.gz", hash = "sha256:fa3359bc8bd93e7aebca372dafec8e19003b4c1f64499e2eb82b2771da8fa41c"},
 ]
 
 [package.dependencies]
@@ -3635,14 +3453,14 @@ stevedore = ">=1.20.0"
 
 [[package]]
 name = "python-neutronclient"
-version = "11.8.0"
+version = "14.0.0"
 description = "CLI and Client Library for OpenStack Networking"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "python_neutronclient-11.8.0-py3-none-any.whl", hash = "sha256:f0bbb3f14f11a89cbb8489fa7b1341067647403592e03956d7f79bb757d0befe"},
-    {file = "python_neutronclient-11.8.0.tar.gz", hash = "sha256:6ea711eb88fcde47523250ac829cb9b9da8bc0bf2dd0205add4e1c9a4cce0515"},
+    {file = "python_neutronclient-14.0.0-py3-none-any.whl", hash = "sha256:1c97137036315a4cd31f77155d77317a336d8aa7fd4f0c9a1b61437add4fef66"},
+    {file = "python_neutronclient-14.0.0.tar.gz", hash = "sha256:9f7ba93e6845e381b833eb54c8fd143160b8fa026c383078f9ac39de7f3c5d19"},
 ]
 
 [package.dependencies]
@@ -4670,23 +4488,9 @@ description = "Manage dynamic plugins for Python applications"
 optional = false
 python-versions = ">=3.10"
 groups = ["main", "test-bandit"]
-markers = "python_version < \"3.15\""
 files = [
     {file = "stevedore-5.8.0-py3-none-any.whl", hash = "sha256:88eede9e66ca80e34085b9174e2327da2c61ac91f24f70e41c3ad76e4bb4872b"},
     {file = "stevedore-5.8.0.tar.gz", hash = "sha256:b49867b32ca3016e94100e68dbf26e72aa7b8708d0a3f73c08aeb220370ac715"},
-]
-
-[[package]]
-name = "stevedore"
-version = "5.9.1"
-description = "Manage dynamic plugins for Python applications"
-optional = false
-python-versions = ">=3.11"
-groups = ["main", "test-bandit"]
-markers = "python_version >= \"3.15\""
-files = [
-    {file = "stevedore-5.9.1-py3-none-any.whl", hash = "sha256:5c8ff3a9f336cc1a06ac0f597bc79d11a2f950bfd32e290ca56b5a301fafafbf"},
-    {file = "stevedore-5.9.1.tar.gz", hash = "sha256:e97a2667923efda926e8713fde6a73616df68210a3cbc6f02b48967b676fd8bf"},
 ]
 
 [[package]]
@@ -5218,4 +5022,4 @@ type = ["pytest-mypy (>=1.0.1) ; platform_python_implementation != \"PyPy\""]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "8d8f505694a46b7a18bf16a8a7dad7b945b5b2ac90abe1f7182ebff31ff61800"
+content-hash = "2464b6417143fac823376ee9a434d25af489ab4c0737153ef75c20b62ac6882c"
