@@ -45,7 +45,7 @@ class CasoError(Exception):
                     LOG.error(f"{name}: {value}")
                 six.reraise(exc_info[0], exc_info[1], exc_info[2])
 
-        super().__init__(message)
+        super().__init__(message, **kwargs)
 
 
 class MessengerNotFoundError(CasoError):
