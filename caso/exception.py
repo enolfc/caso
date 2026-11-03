@@ -29,7 +29,7 @@ class CasoError(Exception):
 
     msg_fmt = "An unknown exception occurred."
 
-    def __init__(self, message=None, **kwargs): # noqa: B042
+    def __init__(self, message=None, **kwargs):  # noqa: B042
         """Initialize the exception with a given message, formatted with kwargs."""
         self.kwargs = kwargs
 
