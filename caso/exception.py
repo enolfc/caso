@@ -29,7 +29,7 @@ class CasoError(Exception):
 
     msg_fmt = "An unknown exception occurred."
 
-    def __init__(self, message=None, **kwargs):
+    def __init__(self, message=None, **kwargs):  # noqa: B042
         """Initialize the exception with a given message, formatted with kwargs."""
         self.kwargs = kwargs
 
@@ -45,7 +45,7 @@ class CasoError(Exception):
                     LOG.error(f"{name}: {value}")
                 six.reraise(exc_info[0], exc_info[1], exc_info[2])
 
-        super(CasoError, self).__init__(message)
+        super().__init__(message, **kwargs)
 
 
 class MessengerNotFoundError(CasoError):
