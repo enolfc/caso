@@ -2759,26 +2759,28 @@ msgpack = ">=0.5.2"
 
 [[package]]
 name = "oslo-utils"
-version = "7.4.0"
+version = "10.1.1"
 description = "Oslo Utility library"
 optional = false
-python-versions = ">=3.9"
+python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "oslo.utils-7.4.0-py3-none-any.whl", hash = "sha256:6dd15c9fc4fb98d38e5b017f2f5ae171d35a73c5f2ae62a93d5f3bfd9384074b"},
-    {file = "oslo.utils-7.4.0.tar.gz", hash = "sha256:aa5dcb5daa05ddf4b534f2cdeda56f7f21485c96f5cbaf6a8c0871d803b73ece"},
+    {file = "oslo_utils-10.1.1-py3-none-any.whl", hash = "sha256:dcc7aa6668aa84fc14a18a4064b389b2992e1ee793ba38dadac327dfba69dadd"},
+    {file = "oslo_utils-10.1.1.tar.gz", hash = "sha256:c8ac3ee295303cc5776c4d8e1d4ef10078ece60ede4931177e4f07aca58f81ab"},
 ]
 
 [package.dependencies]
-debtcollector = ">=1.2.0"
 iso8601 = ">=0.1.11"
 netaddr = ">=0.10.0"
 "oslo.i18n" = ">=3.15.3"
 packaging = ">=20.4"
+pbr = ">=6.1.0"
 psutil = ">=3.2.2"
 pyparsing = ">=2.1.0"
 PyYAML = ">=3.13"
-tzdata = ">=2022.4"
+
+[package.extras]
+image-inspection = ["cryptography (>=43.0.3)"]
 
 [[package]]
 name = "packaging"
@@ -5101,4 +5103,4 @@ type = ["pytest-mypy (>=1.0.1) ; platform_python_implementation != \"PyPy\""]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "2f0d5543340a5842bff7938e925c60bdcc1494cbd5ca56dc285e181a1f3673d3"
+content-hash = "c20b46487e94e795329a29ff113b0c6efab112ddc0273fb31217ef9ccac83a19"
